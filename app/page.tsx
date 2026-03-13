@@ -255,8 +255,8 @@ function DailyTable({ data, ticker }: { data: EquityPoint[]; ticker: string }) {
                 {h:`${ticker} RET`, a:"right"  as const},
                 {h:"SPY RET",       a:"right"  as const},
               ].map(({h,a})=>(
-                <th key={h} style={{padding:"7px 10px",textAlign:a,fontSize:17,
-                  letterSpacing:1.5,color:TEXT3,fontWeight:400,whiteSpace:"nowrap",fontSize:11}}>{h}</th>
+                <th key={h} style={{padding:"7px 10px",textAlign:a,fontSize:11,
+                  letterSpacing:1.5,color:TEXT3,fontWeight:400,whiteSpace:"nowrap"}}>{h}</th>
               ))}
             </tr>
           </thead>
@@ -365,7 +365,7 @@ export default function Home() {
   const analyze = async () => {
     setLoading(true); setError(null); setResult(null);
     try {
-      const res = await fetch("https://indicatorcombo-production.up.railway.app/api/analyze", {
+      const res = await fetch("http://localhost:8000/api/analyze", {
         method:"POST", headers:{"Content-Type":"application/json"},
         body:JSON.stringify({ticker:ticker.toUpperCase(),holding_days:holdingDays,years}),
       });
