@@ -115,7 +115,7 @@ function EquityChart({ data, ticker }: { data: EquityPoint[]; ticker: string }) 
 
     const all=data.flatMap(d=>[d.strat_spy,d.strat_bond,d.buyhold,d.spy]);
     const lo=Math.min(...all)*0.98, hi=Math.max(...all)*1.02;
-    const xS=(i:number)=>P.l+(i/(data.length-1))*cW;
+    const xS=(i:number)=>P.l+(data.length>1?i/(data.length-1):0)*cW;
     const yS=(v:number)=>P.t+cH-((v-lo)/(hi-lo))*cH;
 
     // Horizontal grid
