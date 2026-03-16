@@ -365,7 +365,7 @@ export default function Home() {
   const analyze = async () => {
     setLoading(true); setError(null); setResult(null);
     try {
-      const res = await fetch("http://localhost:8000/api/analyze", {
+      const res = await fetch("https://indicatorcombo-production.up.railway.app/api/analyze", {
         method:"POST", headers:{"Content-Type":"application/json"},
         body:JSON.stringify({ticker:ticker.toUpperCase(),holding_days:holdingDays,years}),
       });
